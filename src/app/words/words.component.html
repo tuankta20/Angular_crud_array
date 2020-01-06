@@ -1,0 +1,13 @@
+
+<div *ngIf="showform">
+  <input placeholder="EN" [(ngModel)]="newEn" >
+  <input placeholder="VN" [(ngModel)]="newVn" >
+  <button (click)="add();">add</button>
+</div>
+<button (click)="showform= true" *ngIf="!showform">add</button>
+<div *ngFor="let arr of arrWords">
+  <p [ngStyle]="{'color':arr.memorized ?'red' : 'green'}" >{{arr.en}}</p>
+  <p>{{arr.vn}}</p>
+  <button (click)="remove(arr.id)">xoa</button>
+  <button (click)="arr.memorized = !arr.memorized">thay doi</button>
+</div>
